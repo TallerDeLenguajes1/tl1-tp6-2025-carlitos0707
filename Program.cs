@@ -25,3 +25,33 @@ if (int.TryParse(n, out i))
 
     Console.WriteLine("El numero invertido es: " + invertido);
 }
+
+Console.WriteLine("Ingrese un cadena");
+string cad = Console.ReadLine();
+Console.WriteLine("Longitud; " + cad.Length);
+
+Console.WriteLine("Ingrese otra cadena");
+
+string cad2 = Console.ReadLine();
+Console.WriteLine(cad2.Substring(2));
+
+foreach (char c in cad)
+{
+    Console.WriteLine(c);
+}
+
+Console.WriteLine(cad.ToUpper());
+Console.WriteLine(cad.ToLower());
+
+if (cad.Contains(Console.ReadLine()))
+{
+    Console.WriteLine("Contiene la palabra");
+}
+
+string cad3 = Console.ReadLine();
+
+string[] subs = cad3.Split(' ');
+foreach (var sub in subs)
+{
+    Console.WriteLine($"substring {sub}");
+}
