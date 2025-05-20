@@ -38,6 +38,15 @@ while (op != "Salir")
     Console.WriteLine("\tResta");
     Console.WriteLine("\tMultiplicacion");
     Console.WriteLine("\tDivision");
+    Console.WriteLine("Seleccione una opcion");
+    Console.WriteLine("\tabs");
+    Console.WriteLine("\tCuadrado");
+    Console.WriteLine("\tRaiz");
+    Console.WriteLine("\tseno");
+    Console.WriteLine("\tcoseno");
+    Console.WriteLine("\tParte entera");
+    Console.WriteLine("\tMin");
+    Console.WriteLine("\tMax");
     Console.WriteLine("\tSalir");
     op = Console.ReadLine();
     
@@ -45,10 +54,22 @@ while (op != "Salir")
     {
         break;
     }
-    Console.WriteLine("Ingrese 2 numeros");
     int x = 0;
     int y = 0;
-    if(int.TryParse(Console.ReadLine(),out x) && int.TryParse(Console.ReadLine(),out y)){
+    float z = 0;
+    bool res;
+    if (op == "Max" || op == "Min")
+    {
+        Console.WriteLine("Ingrese 2 numeros");
+        res = int.TryParse(Console.ReadLine(), out x) && int.TryParse(Console.ReadLine(), out y);
+    }
+    else
+    {
+        Console.WriteLine("Ingrese 1 numero");
+    
+        res = float.TryParse(Console.ReadLine(), out z);
+    }
+    if (res) {
         switch (op)
         {
             case "Sumar":
@@ -63,8 +84,31 @@ while (op != "Salir")
             case "Division":
                 Console.WriteLine(x / y);
                 break;
-            default:
+            case "abs":
+                Console.WriteLine(Math.Abs(z));
                 break;
+            case "Cuadrado":
+                Console.WriteLine(float.Pow(z, 2));
+                break;
+            case "Raiz":
+                Console.WriteLine(float.Sqrt(z));
+                break;
+            case "seno":
+                Console.WriteLine(float.Sin(z));
+                break;
+            case "coseno":
+                Console.WriteLine(float.Cos(z));
+                break;
+            case "Parte entera":
+                Console.WriteLine(Math.Truncate(z));
+                break;
+            case "Max":
+                Console.WriteLine(int.Max(x, y));
+                break;
+            case "Min":
+                Console.WriteLine(int.Min(x, y));
+                break;
+
         }
     }
 }
